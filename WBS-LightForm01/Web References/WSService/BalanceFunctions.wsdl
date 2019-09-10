@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/BalanceFunctions" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/BalanceFunctions" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/BalanceFunctions" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="CreateCololerCodes">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vSCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="vSDescription" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateCololerCodes_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="CreateFontCodes">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="vSCode" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="vSDescription" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateFontCodes_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="CreateCololerCodes">
+    <part name="parameters" element="tns:CreateCololerCodes" />
+  </message>
+  <message name="CreateCololerCodes_Result">
+    <part name="parameters" element="tns:CreateCololerCodes_Result" />
+  </message>
+  <message name="CreateFontCodes">
+    <part name="parameters" element="tns:CreateFontCodes" />
+  </message>
+  <message name="CreateFontCodes_Result">
+    <part name="parameters" element="tns:CreateFontCodes_Result" />
+  </message>
+  <portType name="BalanceFunctions_Port">
+    <operation name="CreateCololerCodes">
+      <input name="CreateCololerCodes" message="tns:CreateCololerCodes" />
+      <output name="CreateCololerCodes_Result" message="tns:CreateCololerCodes_Result" />
+    </operation>
+    <operation name="CreateFontCodes">
+      <input name="CreateFontCodes" message="tns:CreateFontCodes" />
+      <output name="CreateFontCodes_Result" message="tns:CreateFontCodes_Result" />
+    </operation>
+  </portType>
+  <binding name="BalanceFunctions_Binding" type="tns:BalanceFunctions_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="CreateCololerCodes">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/BalanceFunctions:CreateCololerCodes" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateCololerCodes">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateCololerCodes_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateFontCodes">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/BalanceFunctions:CreateFontCodes" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateFontCodes">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateFontCodes_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="BalanceFunctions">
+    <port name="BalanceFunctions_Port" binding="tns:BalanceFunctions_Binding">
+      <address location="http://localhost:7047/DynamicsNAV100/WS/CRONUS%20Danmark%20A%252FS/Codeunit/BalanceFunctions" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>
